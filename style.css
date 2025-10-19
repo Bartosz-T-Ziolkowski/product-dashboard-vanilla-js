@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    margin: 10px;
+    padding: 10px;
+}
+
+header {
+    background: #006747;
+    color: #ffffff;
+    padding: 16px;
+    text-align: center;
+}
+
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    justify-content: center;
+}
+
+.product-card {
+    background: #006747;
+    padding: 16px;
+    border: 1px solid #cccccc;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px #999999;
+}

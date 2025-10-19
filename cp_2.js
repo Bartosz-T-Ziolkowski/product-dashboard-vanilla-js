@@ -22,20 +22,26 @@ async function fetchProductsAsync() {
 }
 
 function displayProducts(products) {
-    container.innerHTML = "";
-    products.slice(0, 5).forEach((p) => {
-        const { name, price } = p.fields;
-        const imageUrl = imageUrl(p.fields);
+    const container = document.getElementById("product-container");
+    const firstFive = products.slice(0, 5);
+    firstFive.forEach(product => {
         const card = document.createElement("div");
         card.className = "product-card";
-        card.innerHTML = `
-        <img class="product-image" src="${imageUrl}" alt="${escapeHtml(name)}>
-        <div class="product-name">${escapeHtml(name)}</div>
-        <div class="product-price>$${(price / 100).toFixed(2)}</div>
-        `;
+
+        const img = document.createElement("img");
+        img.src = product.fields.image[0].url;
+
+        const name = document.createElement("h3");
+        name.textContent = product.fields.name;
+
+        const price = document.createElement("p");
+        price.textContent = `$${product.fields.price / 100}`;
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(price);
         container.appendChild(card);
     });
-    statusEL.textContent = "Showing first 5 products.";
 }
 
 function handleError(error) {
