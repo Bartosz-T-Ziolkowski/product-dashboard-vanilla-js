@@ -37,3 +37,7 @@ function displayProducts(products) {
     });
     statusEL.textContent = "Showing first 5 products.";
 }
+
+function handleError(error) {
+    console.log("An error has occurrd:", error.message);
+}
